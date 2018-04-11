@@ -43,16 +43,15 @@ return this.replace(this.charAt(),this.charAt().toUpperCase());
 
      // 1. turn on the lightbox
 
-     lightbox.classList.add('show-lightbox') ;
+     
      //2. grab the right video based on the class name -> the split yields the name
     var house = this.className.split(' ')[1].capIt();
-		 setTimeout(openBox, 3000);
+		 setTimeout(openBox, 2000);
     function openBox() {
-
+		lightbox.classList.add('show-lightbox');
 
 //3. put the path together and make the video load and play
-    vidPlayer.src = `video/House-
-    ${house}.${vidPlayer.currentSrc.split('.')[1]}`;
+    vidPlayer.src = `video/House-${house}.${vidPlayer.currentSrc.split('.')[1]}`;
 
    vidPlayer.load();
     vidPlayer.play();
@@ -65,7 +64,7 @@ return this.replace(this.charAt(),this.charAt().toUpperCase());
 
  function animateBanners(offset) {
    //console.log(600 * offset);
-   imageBanner.style.right = (offset * 700) + "px";
+   imageBanner.style.right = (offset * 600) + "px";
 	 
 	  if (offset == 0) {
       title.innerHTML = maintitle[0];
@@ -119,7 +118,7 @@ return this.replace(this.charAt(),this.charAt().toUpperCase());
      //flip this accordin to the video state => if playing ,pause it . If it's pasued,play it. and change the icon's class to show the correct state (play/pause data-icon attribute)
      var theSVG = this.firstElementChild;
 
-     if (vidPlayer.pasued){
+     if (vidPlayer.paused){
        vidPlayer.play();
        theSVG.dataset.icon ="pause-circle";
      }else {
@@ -136,14 +135,22 @@ function ffWdVid(){
 
 function rWidVid(){
   //debugger;
-	vidPlayer.prevplay();
+
 }
 
-
+function controlVolume() {
+	var theConVo = this.firstElementChild;
+	if (vidPlayer.muted === true) {
+		vidPlayer.muted =false;
+		theConVo.dataset.icon = "volume-up";
+	}else {
+		vidPlayer.muted =true;
+		theConVo.dataset.icon = "volume-off";
+	}
+}
 
    //event at the bottom
-   sigils.forEach(sigil =>
-	    sigil.addEventListener('click',loadMovie));
+   sigils.forEach(sigil => sigil.addEventListener('click',loadMovie));
 
 
    closeLightbox.addEventListener('click',closeLBox);

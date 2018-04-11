@@ -38,7 +38,7 @@ main {
 	overflow:hidden;
 }
 
-#houseImages { position:relative; width:4400px; transition: all .5s; }
+#houseImages { position:relative; width:4800px; transition: all .5s; }
 #houseImages img { float:left; }
 
 #bottomNav { margin-top:30px; }
@@ -86,8 +86,8 @@ main {
 .frey { background-position:-304px -54px; }
 .frey:hover { background-position:-304px 0px; }
 
-.targaryen { background-position:-356px -54px; }
-.targaryen:hover { background-position:-356px 0px; }
+.targaryen { background-position:-355px -54px; }
+.targaryen:hover { background-position:-355px 0px; }
 
 
 /* ----- end image sprite ----- */
