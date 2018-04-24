@@ -130,12 +130,11 @@ return this.replace(this.charAt(),this.charAt().toUpperCase());
 
 
 function ffWdVid(){
-  //debugger;
+  vidPlayer.currentTime += 3;
 }
 
 function rWidVid(){
-  //debugger;
-
+  vidPlayer.currentTime -= 3;
 }
 
 function controlVolume() {
